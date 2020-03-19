@@ -1,0 +1,29 @@
+﻿@page "/"
+@using TestMVC.Data
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+
+ <EditForm Model="@_exampleModel" OnValidSubmit="HandleValidSubmit"> 
+     <DataAnnotationsValidator /> 
+     <ValidationSummary /> 
+
+     <InputText id="name" @bind-Value="_exampleModel.Name"  /> 
+
+     <button type="submit">Submit</button> 
+   
+    <label for="name">@_exampleModel.Name</label> 
+
+ </EditForm> 
+
+ @code {
+     private ExampleModel _exampleModel = new ExampleModel(); 
+
+    private void HandleValidSubmit() 
+     { 
+        Console.WriteLine("OnValidSubmit"); 
+    }
+
+ } 
